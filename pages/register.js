@@ -44,7 +44,6 @@ const Register = () => {
 
   const clickHandler = async (e) => {
     e.preventDefault()
-    console.log(`clickeed ${process.env.FIREBASE_POST_REQUEST_URI}`)
     const response = await makePostRequest(process.env.FIREBASE_POST_REQUEST_URI, {
       companyname: companyname,
       sectors: sectors,
@@ -104,19 +103,19 @@ const Register = () => {
                 </div>
                 <div className="mb-5">
                   <label for="firstperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name of the First Contact Person</label>
-                  <input type="text" id="firstperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Aditya Kumar" required onChange={(e) => { setFirstperson(e.target.value); }}/>
+                  <input type="text" id="firstperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Aditya Kumar" required onChange={(e) => { setFirstperson(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <label for="contactperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact of the First Contact Person</label>
-                  <input type="text" id="contactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="8548344656" required onChange={(e) => { setContactperson(e.target.value); }}/>
+                  <input type="text" id="contactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="8548344656" required onChange={(e) => { setContactperson(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <label for="secondperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name of the Second Contact Person</label>
-                  <input type="text" id="secondperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rohan Kumar" required onChange={(e) => { setSecondperson(e.target.value); }}/>
+                  <input type="text" id="secondperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rohan Kumar" required onChange={(e) => { setSecondperson(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <label for="2ndcontactperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact of the Second Contact Person</label>
-                  <input type="text" id="2ndcontactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="9847654345" required onChange={(e) => { setContactpersontwo(e.target.value); }}/>
+                  <input type="text" id="2ndcontactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="9847654345" required onChange={(e) => { setContactpersontwo(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <MultiSelectDropdown
