@@ -13,10 +13,13 @@ import {
 import benefitOneImg from "../public/img/benefit-one.png";
 import benefitTwoImg from "../public/img/benefit-two.png";
 
+let benefitlottie = "https://lottie.host/76a1abf5-6f5d-43a6-8d6c-28d3ddfbed5a/1xswpPeNmz.json"
+let events = "https://lottie.host/f84f2e99-be5d-420e-8261-f8dd35c8b7d3/Tu86wVLH6b.json"
+
 const benefitOne = {
   title: "Benifits of being a part of CDX",
   desc: "There are a lot of benifits of being the part of CDX some of them are listed below.",
-  image: benefitOneImg,
+  image: benefitlottie,
   bullets: [
     {
       title: "Access to talent pool",
@@ -44,7 +47,7 @@ const benefitOne = {
 const benefitTwo = {
   title: "Events and Activities at CDX",
   desc: "There are a lot of events and activities at CDX some of them are listed below.",
-  image: benefitTwoImg,
+  image: events,
   bullets: [
     {
       title: "Guest Lectures",

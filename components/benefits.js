@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Container from "./container";
+import DisplayLottie from "./Lottie";
 
 const Benefits = (props) => {
   const { data } = props;
@@ -12,7 +13,7 @@ const Benefits = (props) => {
             props.imgPos === "right" ? "lg:order-1" : ""
           }`}>
           <div>
-            <Image
+            {/* <Image
               src={data.image}
               width="521"
               height="auto"
@@ -20,7 +21,8 @@ const Benefits = (props) => {
               className={"object-cover"}
               placeholder="blur"
               blurDataURL={data.image.src}
-            />
+            /> */}
+            <DisplayLottie animationPath={data.image} />
           </div>
         </div>
 
