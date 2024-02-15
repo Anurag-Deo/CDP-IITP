@@ -4,53 +4,66 @@ import {
   CursorArrowRaysIcon,
   DevicePhoneMobileIcon,
   AdjustmentsHorizontalIcon,
+  NewspaperIcon,
   SunIcon,
+  CommandLineIcon,
+  ChatBubbleBottomCenterIcon
 } from "@heroicons/react/24/solid";
 
 import benefitOneImg from "../public/img/benefit-one.png";
 import benefitTwoImg from "../public/img/benefit-two.png";
 
 const benefitOne = {
-  title: "Highlight your benefits",
-  desc: "You can use this space to highlight your first benefit or a feature of your product. It can also contain an image or Illustration like in the example along with some bullet points.",
+  title: "Benifits of being a part of CDX",
+  desc: "There are a lot of benifits of being the part of CDX some of them are listed below.",
   image: benefitOneImg,
   bullets: [
     {
-      title: "Understand your customers",
-      desc: "Then explain the first point breifly in one or two lines.",
+      title: "Access to talent pool",
+      desc: "Companies can connect with a diverse pool of talented individuals actively seeking career opportunities.",
       icon: <FaceSmileIcon />,
     },
     {
-      title: "Improve acquisition",
-      desc: "Here you can add the next benefit point.",
+      title: "Brand visibility and networking:",
+      desc: "Participation in the expo enhances a company's brand visibility among job seekers, industry professionals and other participating organizations.",
       icon: <ChartBarSquareIcon />,
     },
     {
-      title: "Drive customer retention",
-      desc: "This will be your last bullet point in this section.",
+      title: "Market insights and trends",
+      desc: "Engaging with attendees and other industry stakeholders allows companies to gain insights into current market trends, challenges and opportunities.",
       icon: <CursorArrowRaysIcon />,
+    },
+    {
+      title: "Thought leadership and expertise",
+      desc: "Sharing expertise and insights can enhance their reputation and credibility among attendees.",
+      icon: <NewspaperIcon />,
     },
   ],
 };
 
 const benefitTwo = {
-  title: "Offer more benefits here",
-  desc: "You can use this same layout with a flip image to highlight your rest of the benefits of your product. It can also contain an image or Illustration as above section along with some bullet points.",
+  title: "Events and Activities at CDX",
+  desc: "There are a lot of events and activities at CDX some of them are listed below.",
   image: benefitTwoImg,
   bullets: [
     {
-      title: "Mobile Responsive Template",
-      desc: "Nextly is designed as a mobile first responsive template.",
+      title: "Guest Lectures",
+      desc: "Accomplished professionals from diverse sectors will deliver inspiring talks, offering unique perspectives and practical advice to aid career growth.",
+      icon: <ChatBubbleBottomCenterIcon />,
+    },
+    {
+      title: "Hackathons",
+      desc: "Collaborate with like-minded individuals in exhilarating hackathons, fostering innovation and creativity to solve real-world challenges.",
+      icon: <CommandLineIcon />,
+    },
+    {
+      title: "Workshops",
+      desc: "Engage in interactive workshops led by experts, focusing on skill enhancement, personal branding and effective networking strategies.",
       icon: <DevicePhoneMobileIcon />,
     },
     {
-      title: "Powered by Next.js & TailwindCSS",
-      desc: "This template is powered by latest technologies and tools.",
-      icon: <AdjustmentsHorizontalIcon />,
-    },
-    {
-      title: "Dark & Light Mode",
-      desc: "Nextly comes with a zero-config light & dark mode. ",
+      title: "Case Study Competitions",
+      desc: "Compete against peers to develop innovative solutions and present compelling business strategies, earning recognition and valuable feedback from esteemed judges.",
       icon: <SunIcon />,
     },
   ],

@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Nextly - Free Nextjs & TailwindCSS Landing Page Template</title>
+        <title>CDX - Career Development Expo</title>
         <meta
           name="description"
           content="Nextly is a free landing page template built with next.js & Tailwind CSS"
@@ -27,15 +27,13 @@ const Home = () => {
       <Navbar />
       <Hero />
       <SectionTitle
-        pretitle="Nextly Benefits"
-        title=" Why should you use this landing page">
-        Nextly is a free landing page & marketing website template for startups
-        and indie projects. Its built with Next.js & TailwindCSS. And its
-        completely open-source.
+        pretitle=""
+        title=" Why you should register for CDX">
+        The companies can connect with a diverse pool of talented individuals, which increases their brand visibility and networking. 
       </SectionTitle>
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
-      <SectionTitle
+      {/* <SectionTitle
         pretitle="Watch a video"
         title="Learn how to fullfil your needs">
         This section is to highlight a promo or demo video of your product.
@@ -54,7 +52,7 @@ const Home = () => {
         Answer your customers possible questions here, it will increase the
         conversion rate as well as support or chat requests.
       </SectionTitle>
-      <Faq />
+      <Faq /> */}
       <Cta />
       <Footer />
       <PopupWidget />
