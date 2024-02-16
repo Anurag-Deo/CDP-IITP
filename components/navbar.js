@@ -5,9 +5,9 @@ import { Disclosure } from "@headlessui/react";
 
 const Navbar = () => {
   const navigation = [
-    "Events",
-    "Speakers",
-    "Contact Us",
+    // "Events",
+    // "Speakers",
+    // "Contact Us",
   ];
 
   return (

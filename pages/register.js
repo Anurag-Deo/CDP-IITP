@@ -182,6 +182,18 @@ const Register = () => {
                   />
                 </div>
                 <div className="mb-5">
+                  <MultiSelectDropdown
+                    formFieldName={"countries"}
+                    options={EVENTS}
+                    value = {events}
+                    onChange={(selectedEvents) => {
+                      // console.debug("selectedCountries", selectedEvents);
+                      setEvents(selectedEvents);
+                    }}
+                    prompt="Select the event you want to organize"
+                  />
+                </div>
+                <div className="mb-5">
                   <label for="peoplevisiting" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of People Visiting</label>
                   <input type="text" id="peoplevisiting" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required
                     value={peoplevisiting}
@@ -202,18 +214,6 @@ const Register = () => {
                 <div className="mb-5">
                   <label for="2ndcontactperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact of the Second Contact Person</label>
                   <input type="text" id="2ndcontactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="9847654345" required value={contactpersontwo} onChange={(e) => { setContactpersontwo(e.target.value); }} />
-                </div>
-                <div className="mb-5">
-                  <MultiSelectDropdown
-                    formFieldName={"countries"}
-                    options={EVENTS}
-                    value = {events}
-                    onChange={(selectedEvents) => {
-                      // console.debug("selectedCountries", selectedEvents);
-                      setEvents(selectedEvents);
-                    }}
-                    prompt="Select the event you want to organize"
-                  />
                 </div>
                 <div className="mb-5">
                   <label for="anyrequirements" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Any Requirements</label>
