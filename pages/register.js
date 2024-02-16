@@ -7,6 +7,9 @@ import MultiSelectDropdown from "../components/MultiSelectDropdown";
 import { useState } from "react";
 import DisplayLottie from "../components/Lottie";
 import { makePostRequest } from "../utils/makeRequest";
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
+ import { Bounce } from 'react-toastify';  
 
 
 const SECTORS = [
@@ -44,6 +47,50 @@ const Register = () => {
 
   const clickHandler = async (e) => {
     e.preventDefault()
+    // Data Validation
+    if (companyname === '' || peoplevisiting === '' || firstperson === '' || contactperson === '' || secondperson === '' || contactpersontwo === '' || sectors.length === 0 || events.length === 0 || anyrequirements === '') {
+      toast.error('Please fill all the fields', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+        });
+      return
+    }
+    if (contactperson.length !== 10 || contactpersontwo.length !== 10 || isNaN(contactperson) || isNaN(contactpersontwo)){
+      toast.error('Please enter a valid contact number', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+        });
+      return
+    }
+    if (isNaN(peoplevisiting)){
+      toast.error('Please enter a valid number of people visiting', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+        });
+      return
+    }
+    
     const response = await makePostRequest(process.env.NEXT_PUBLIC_FIREBASE_POST_REQUEST_URI, {
       companyname: companyname,
       sectors: sectors,
@@ -55,7 +102,29 @@ const Register = () => {
       events: events,
       anyrequirements: anyrequirements
     })
-    console.log(response)
+    if (response){
+      toast.success('You are successfully registered for the event', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+        });
+    }
+    // console.log(response)
+    setSectors([])
+    setEvents([])
+    setCompanyname('')
+    setPeoplevisiting('')
+    setFirstperson('')
+    setContactperson('')
+    setSecondperson('')
+    setContactpersontwo('')
+    setAnyrequirements('')
   }
 
   return (
@@ -71,6 +140,20 @@ const Register = () => {
 
       <Navbar />
       <>
+        <ToastContainer
+          stacked
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          transition= "Bounce"
+          />
         <Container className="flex flex-wrap ">
           <div className="flex items-center w-full lg:w-1/2">
             <div className="max-w-2xl mb-8">
@@ -83,12 +166,14 @@ const Register = () => {
                 <div className="mb-5">
                   <label for="companyname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company Name</label>
                   <input type="companyname" id="companyname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Apple"
+                    value={companyname}
                     required onChange={(e) => { setCompanyname(e.target.value) }} />
                 </div>
                 <div className="mb-5">
                   <MultiSelectDropdown
                     formFieldName={"countries"}
                     options={SECTORS}
+                    value = {sectors}
                     onChange={(selectedSectors) => {
                       // console.log("selectedCountries", selectedCountries);
                       setSectors(selectedSectors);
@@ -99,28 +184,30 @@ const Register = () => {
                 <div className="mb-5">
                   <label for="peoplevisiting" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of People Visiting</label>
                   <input type="text" id="peoplevisiting" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="5" required
+                    value={peoplevisiting}
                     onChange={(e) => { setPeoplevisiting(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <label for="firstperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name of the First Contact Person</label>
-                  <input type="text" id="firstperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Aditya Kumar" required onChange={(e) => { setFirstperson(e.target.value); }} />
+                  <input type="text" id="firstperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Aditya Kumar" required value={firstperson} onChange={(e) => { setFirstperson(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <label for="contactperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact of the First Contact Person</label>
-                  <input type="text" id="contactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="8548344656" required onChange={(e) => { setContactperson(e.target.value); }} />
+                  <input type="text" id="contactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="8548344656" required value={contactperson} onChange={(e) => { setContactperson(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <label for="secondperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name of the Second Contact Person</label>
-                  <input type="text" id="secondperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rohan Kumar" required onChange={(e) => { setSecondperson(e.target.value); }} />
+                  <input type="text" id="secondperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rohan Kumar" required value={secondperson} onChange={(e) => { setSecondperson(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <label for="2ndcontactperson" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact of the Second Contact Person</label>
-                  <input type="text" id="2ndcontactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="9847654345" required onChange={(e) => { setContactpersontwo(e.target.value); }} />
+                  <input type="text" id="2ndcontactperson" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="9847654345" required value={contactpersontwo} onChange={(e) => { setContactpersontwo(e.target.value); }} />
                 </div>
                 <div className="mb-5">
                   <MultiSelectDropdown
                     formFieldName={"countries"}
                     options={EVENTS}
+                    value = {events}
                     onChange={(selectedEvents) => {
                       // console.debug("selectedCountries", selectedEvents);
                       setEvents(selectedEvents);
@@ -130,7 +217,7 @@ const Register = () => {
                 </div>
                 <div className="mb-5">
                   <label for="anyrequirements" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Any Requirements</label>
-                  <input type="text" id="anyrequirements" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required onChange={(e) => { setAnyrequirements(e.target.value); }} />
+                  <input type="text" id="anyrequirements" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value={anyrequirements} onChange={(e) => { setAnyrequirements(e.target.value); }} />
                 </div>
                 <button
                   type="submit"
