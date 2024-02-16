@@ -44,7 +44,7 @@ const Register = () => {
 
   const clickHandler = async (e) => {
     e.preventDefault()
-    const response = await makePostRequest(process.env.FIREBASE_POST_REQUEST_URI, {
+    const response = await makePostRequest(process.env.NEXT_PUBLIC_FIREBASE_POST_REQUEST_URI, {
       companyname: companyname,
       sectors: sectors,
       peoplevisiting: peoplevisiting,

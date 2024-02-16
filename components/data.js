@@ -17,8 +17,8 @@ let benefitlottie = "https://lottie.host/76a1abf5-6f5d-43a6-8d6c-28d3ddfbed5a/1x
 let events = "https://lottie.host/f84f2e99-be5d-420e-8261-f8dd35c8b7d3/Tu86wVLH6b.json"
 
 const benefitOne = {
-  title: "Benifits of being a part of CDX",
-  desc: "There are a lot of benifits of being the part of CDX some of them are listed below.",
+  title: "Benefits of being a part of CDX",
+  desc: "There are a lot of benefits of being the part of CDX some of them are listed below.",
   image: benefitlottie,
   bullets: [
     {
