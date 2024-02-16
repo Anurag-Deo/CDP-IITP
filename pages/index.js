@@ -19,7 +19,7 @@ const Home = () => {
         <title>CDX - Career Development Expo</title>
         <meta
           name="description"
-          content="Nextly is a free landing page template built with next.js & Tailwind CSS"
+          content="Career Development Expo for IIT Patna"
         />
         <link rel="icon" href="/img/logo.png" />
       </Head>
