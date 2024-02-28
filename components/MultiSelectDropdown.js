@@ -71,7 +71,7 @@ export default function MultiSelectDropdown({
         )}
       </div>
 
-      <div className="absolute bg-white dark:bg-gray-700 border transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto w-full max-h-60 overflow-y-scroll">
+      <div className="absolute bg-white dark:bg-gray-700 border transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto w-full max-h-60 overflow-y-scroll z-10">
         {isJsEnabled && (
           <ul>
             <li>
